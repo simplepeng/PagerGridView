@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class PagerGridViewItemAdapter<VH : PagerGridView.ItemViewHolder>(
-    private val pageItemCount: Int,
+    private val pageGridCount: Int,
     private val itemCount: Int,
     private val pageIndex: Int,
     private val itemAdapter: PagerGridView.ItemAdapter<VH>
@@ -25,7 +25,7 @@ class PagerGridViewItemAdapter<VH : PagerGridView.ItemViewHolder>(
         holder: VH,
         position: Int
     ) {
-        val realPosition = (pageIndex * pageItemCount) + holder.adapterPosition
+        val realPosition = (pageIndex * pageGridCount) + holder.adapterPosition
         itemAdapter.onBindViewHolder(holder, realPosition)
     }
 }

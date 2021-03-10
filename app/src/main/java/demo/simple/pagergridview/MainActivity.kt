@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import me.simple.pager.PagerGridView
 
 class MainActivity : AppCompatActivity() {
@@ -31,9 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun getLineCount() = 4
 
-        override fun getItemCount(): Int {
-            return mItems.size
-        }
+        override fun getItemCount() = mItems.size
 
         override fun onCreateViewHolder(
             parent: ViewGroup,
@@ -48,9 +47,12 @@ class MainActivity : AppCompatActivity() {
             holder: InnerViewHolder,
             adapterPosition: Int
         ) {
+            holder.itemView.setOnClickListener {
+                Toast.makeText(this@MainActivity, mItems[adapterPosition], Toast.LENGTH_SHORT)
+                    .show()
+            }
             holder.tvItem.text = mItems[adapterPosition]
         }
-
 
     }
 

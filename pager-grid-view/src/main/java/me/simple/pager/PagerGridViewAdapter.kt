@@ -14,12 +14,12 @@ class PagerGridViewAdapter<VH : PagerGridView.ItemViewHolder>(
     private val mSpanCount = itemAdapter.getSpanCount()
     private val mLineCount = itemAdapter.getLineCount()
 
-    private val mPageItemCount = mSpanCount * mLineCount
+    private val mPageGridCount = mSpanCount * mLineCount
 
     override fun getItemCount(): Int {
         if (itemAdapter.getItemCount() == 0) return 0
 
-        return (itemAdapter.getItemCount() / mSpanCount / mLineCount) + 1
+        return (mItemCount / mSpanCount / mLineCount) + 1
     }
 
     override fun onCreateViewHolder(
@@ -42,19 +42,24 @@ class PagerGridViewAdapter<VH : PagerGridView.ItemViewHolder>(
     ) {
         val pageIndex = holder.adapterPosition
 
-        val itemCount = if (pageIndex == itemCount - 1) {
+        val itemCount = getPageItemCount(pageIndex)
+
+        holder.mRecyclerView
+            .adapter = PagerGridViewItemAdapter(mPageGridCount, itemCount, pageIndex, itemAdapter)
+    }
+
+    private fun getPageItemCount(pageIndex: Int): Int {
+        return if (pageIndex == this.itemCount - 1) {
             if (pageIndex == 0) {
                 mItemCount
             } else {
-                mItemCount % mPageItemCount
+                mItemCount % mPageGridCount
             }
         } else {
-            mPageItemCount
+            mPageGridCount
         }
-
-        holder.mRecyclerView
-            .adapter = PagerGridViewItemAdapter(mPageItemCount, itemCount, pageIndex, itemAdapter)
     }
+
 
     class ViewHolder(
         itemView: View

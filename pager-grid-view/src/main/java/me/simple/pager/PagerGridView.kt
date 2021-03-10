@@ -17,10 +17,6 @@ class PagerGridView @JvmOverloads constructor(
     private val mViewPager = ViewPager2(context)
 
     init {
-//        val layoutParams = ViewGroup.LayoutParams(
-//            ViewGroup.LayoutParams.MATCH_PARENT,
-//            ViewGroup.LayoutParams.MATCH_PARENT
-//        )
         addView(mViewPager)
     }
 
