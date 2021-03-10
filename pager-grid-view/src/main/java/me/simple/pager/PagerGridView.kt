@@ -14,14 +14,14 @@ class PagerGridView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private val mViewPager = ViewPager2(context)
+    val viewPager2 = ViewPager2(context)
 
     init {
-        addView(mViewPager)
+        addView(viewPager2)
     }
 
     fun <VH : ItemViewHolder> setAdapter(adapter: ItemAdapter<VH>) {
-        mViewPager.adapter = PagerGridViewAdapter(adapter)
+        viewPager2.adapter = PagerGridViewAdapter(adapter)
     }
 
     abstract class ItemAdapter<VH : ItemViewHolder> {

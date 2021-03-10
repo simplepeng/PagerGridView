@@ -7,11 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.viewpager2.widget.ViewPager2
+import com.rd.PageIndicatorView
 import me.simple.pager.PagerGridView
 
 class MainActivity : AppCompatActivity() {
 
     private val pagerGridView by lazy { findViewById<PagerGridView>(R.id.pagerGridView) }
+    private val indicatorView by lazy { findViewById<PageIndicatorView>(R.id.indicatorView) }
 
     private val mItems = mutableListOf<String>()
 
@@ -24,6 +27,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         pagerGridView.setAdapter(InnerItemAdapter())
+
+        indicatorView.count = pagerGridView.viewPager2.adapter?.itemCount ?: 0
+        pagerGridView.viewPager2.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                indicatorView.setSelected(position)
+            }
+        })
     }
 
     private inner class InnerItemAdapter : PagerGridView.ItemAdapter<InnerViewHolder>() {
