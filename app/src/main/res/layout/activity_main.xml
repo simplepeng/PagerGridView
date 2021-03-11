@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <me.simple.pager.PagerGridView
+    <me.simple.pager.PagerGridViewPager2
         android:id="@+id/pagerGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

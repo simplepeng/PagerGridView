@@ -17,7 +17,7 @@ class PagerGridViewPagerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pager_grid_view_pager)
         title = "PagerGridViewPager"
 
-        for (index in 0 until 50) {
+        for (index in 0 until MainActivity.ITEM_COUNT) {
             mItems.add(index.toString())
         }
 

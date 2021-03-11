@@ -1,28 +1,10 @@
 package me.simple.pager
 
-import android.content.Context
-import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 
-class PagerGridView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr) {
-
-    val viewPager2 = ViewPager2(context)
-
-    init {
-        addView(viewPager2)
-    }
-
-    fun <VH : ItemViewHolder> setAdapter(adapter: ItemAdapter<VH>) {
-        viewPager2.adapter = PagerGridViewAdapter(adapter)
-    }
+class PagerGridView {
 
     abstract class ItemAdapter<VH : ItemViewHolder> {
 

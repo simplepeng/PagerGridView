@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import me.simple.pager.PagerGridView
+import me.simple.pager.PagerGridViewPager2
 
 class InnerItemAdapter(
     private val mItems: List<String>

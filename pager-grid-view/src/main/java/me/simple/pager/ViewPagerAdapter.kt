@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-internal class PagerGridViewAdapter<VH : PagerGridView.ItemViewHolder>(
+internal class ViewPagerAdapter<VH : PagerGridView.ItemViewHolder>(
     private val itemAdapter: PagerGridView.ItemAdapter<VH>,
-) : RecyclerView.Adapter<PagerGridViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>() {
 
     private val mItemCount = itemAdapter.getItemCount()
     private val mSpanCount = itemAdapter.getSpanCount()
@@ -46,7 +46,7 @@ internal class PagerGridViewAdapter<VH : PagerGridView.ItemViewHolder>(
         val itemCount = getPageItemCount(pageIndex)
 
         holder.mRecyclerView
-            .adapter = PagerGridViewItemAdapter(mPageGridCount, itemCount, pageIndex, itemAdapter)
+            .adapter = RecyclerViewAdapter(mPageGridCount, itemCount, pageIndex, itemAdapter)
     }
 
     private fun getPageItemCount(pageIndex: Int): Int {

@@ -38,7 +38,7 @@ class PagerGridViewPager @JvmOverloads constructor(
         itemAdapter: PagerGridView.ItemAdapter<VH>
     ) : PagerAdapter() {
 
-        private val pagerGridViewAdapter = PagerGridViewAdapter(itemAdapter)
+        private val pagerGridViewAdapter = ViewPagerAdapter(itemAdapter)
 
         override fun getCount(): Int {
             return pagerGridViewAdapter.itemCount

@@ -3,7 +3,7 @@ package me.simple.pager
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-internal class PagerGridViewItemAdapter<VH : PagerGridView.ItemViewHolder>(
+internal class RecyclerViewAdapter<VH : PagerGridView.ItemViewHolder>(
     private val pageGridCount: Int,
     private val itemCount: Int,
     private val pageIndex: Int,

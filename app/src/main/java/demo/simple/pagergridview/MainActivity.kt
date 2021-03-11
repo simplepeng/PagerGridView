@@ -3,20 +3,14 @@ package demo.simple.pagergridview
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.rd.PageIndicatorView
-import me.simple.pager.PagerGridView
-import me.simple.pager.PagerGridViewPager
+import me.simple.pager.PagerGridViewPager2
 
 class MainActivity : AppCompatActivity() {
 
-    private val pagerGridView by lazy { findViewById<PagerGridView>(R.id.pagerGridView) }
+    private val pagerGridView by lazy { findViewById<PagerGridViewPager2>(R.id.pagerGridView) }
     private val indicatorView by lazy { findViewById<PageIndicatorView>(R.id.indicatorView) }
 
     private val btnPagerGridViewPager by lazy { findViewById<View>(R.id.btnPagerGridViewPager) }
@@ -32,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PagerGridViewPagerActivity::class.java))
         }
 
-        for (index in 0 until 100) {
+        for (index in 0 until ITEM_COUNT) {
             mItems.add(index.toString())
         }
 
@@ -48,8 +42,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
     }
 
+    companion object{
+        const val ITEM_COUNT = 30
+    }
 
 }
