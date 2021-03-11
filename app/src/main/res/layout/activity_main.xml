@@ -10,6 +10,7 @@
         android:id="@+id/pagerGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.rd.PageIndicatorView
@@ -22,5 +23,16 @@
         app:layout_constraintTop_toBottomOf="@id/pagerGridView"
         app:piv_selectedColor="@android:color/holo_red_light"
         app:piv_unselectedColor="@color/black" />
+
+    <Button
+        android:id="@+id/btnPagerGridViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="PagerGridViewPager"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
