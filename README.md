@@ -11,18 +11,18 @@
 [![](https://jitpack.io/v/simplepeng/PagerGridView.svg)](https://jitpack.io/#simplepeng/PagerGridView)
 
 ```groovy
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 
 ```groovy
-	dependencies {
-	        implementation 'com.github.simplepeng:PagerGridView:v1.0.1'
-	}
+dependencies {
+        implementation 'com.github.simplepeng:PagerGridView:v1.0.1'
+}
 ```
 
 ## 使用
@@ -76,18 +76,18 @@ class InnerViewHolder(itemView: View) : PagerGridView.ItemViewHolder(itemView) {
 ```
 
 ```xml
-    <me.simple.pager.PagerGridViewPager2
-        android:id="@+id/pagerGridViewPager2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:layout_constraintTop_toTopOf="parent" />
+<me.simple.pager.PagerGridViewPager2
+    android:id="@+id/pagerGridViewPager2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="visible"
+    app:layout_constraintTop_toTopOf="parent" />
 或
-    <me.simple.pager.PagerGridViewPager
-        android:id="@+id/pagerGridViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent" />
+<me.simple.pager.PagerGridViewPager
+    android:id="@+id/pagerGridViewPager"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent" />
 ```
 
 然后设置Adapter就行
