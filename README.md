@@ -1,6 +1,14 @@
 # PagerGridView
 
+快速实现网格分页切换布局，类似聊天的表情切换面板。
+
+|      PagerGridViewPager      |      PagerGridViewPager2      |
+| :--------------------------: | :---------------------------: |
+| ![](files/gif_viewpager.gif) | ![](files/gif_viewpager2.gif) |
+
 ## 导入依赖
+
+[![](https://jitpack.io/v/simplepeng/PagerGridView.svg)](https://jitpack.io/#simplepeng/PagerGridView)
 
 ```groovy
 	allprojects {
@@ -13,7 +21,7 @@
 
 ```groovy
 	dependencies {
-	        implementation 'com.github.simplepeng:PagerGridView:v1.0.0'
+	        implementation 'com.github.simplepeng:PagerGridView:v1.0.1'
 	}
 ```
 
