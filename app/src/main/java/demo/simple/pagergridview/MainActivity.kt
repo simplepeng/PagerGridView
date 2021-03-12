@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object{
-        const val ITEM_COUNT = 30
+        const val ITEM_COUNT = 70
     }
 
 }
