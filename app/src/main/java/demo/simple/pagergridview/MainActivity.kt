@@ -10,7 +10,7 @@ import me.simple.pager.PagerGridViewPager2
 
 class MainActivity : AppCompatActivity() {
 
-    private val pagerGridView by lazy { findViewById<PagerGridViewPager2>(R.id.pagerGridView) }
+    private val pagerGridViewPager2 by lazy { findViewById<PagerGridViewPager2>(R.id.pagerGridViewPager2) }
     private val indicatorView by lazy { findViewById<PageIndicatorView>(R.id.indicatorView) }
 
     private val btnPagerGridViewPager by lazy { findViewById<View>(R.id.btnPagerGridViewPager) }
@@ -31,10 +31,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        pagerGridView.setAdapter(InnerItemAdapter(mItems))
+        pagerGridViewPager2.setAdapter(InnerItemAdapter(mItems))
 
-        indicatorView.count = pagerGridView.viewPager2.adapter?.itemCount ?: 0
-        pagerGridView.viewPager2.registerOnPageChangeCallback(object :
+        indicatorView.count = pagerGridViewPager2.viewPager2.adapter?.itemCount ?: 0
+        pagerGridViewPager2.viewPager2.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
