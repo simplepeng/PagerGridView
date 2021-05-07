@@ -2,6 +2,7 @@ package me.simple.pager
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.widget.FrameLayout
 import androidx.viewpager2.widget.ViewPager2
 
@@ -21,5 +22,14 @@ open class PagerGridViewPager2 @JvmOverloads constructor(
         viewPager2.adapter = ViewPagerAdapter(adapter)
     }
 
-
+    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+        when (ev.action) {
+            MotionEvent.ACTION_DOWN -> {
+                parent.requestDisallowInterceptTouchEvent(true)
+            }
+            MotionEvent.ACTION_MOVE -> {
+            }
+        }
+        return super.onInterceptTouchEvent(ev)
+    }
 }

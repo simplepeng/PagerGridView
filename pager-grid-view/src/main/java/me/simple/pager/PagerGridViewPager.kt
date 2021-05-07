@@ -2,10 +2,13 @@ package me.simple.pager
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewConfiguration
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import kotlin.math.absoluteValue
 import kotlin.math.max
 
 open class PagerGridViewPager @JvmOverloads constructor(
@@ -32,6 +35,43 @@ open class PagerGridViewPager @JvmOverloads constructor(
 
     fun <VH : PagerGridView.ItemViewHolder> setAdapter(adapter: PagerGridView.ItemAdapter<VH>) {
         this.adapter = InnerPagerAdapter(adapter)
+    }
+
+    private var downX = 0f
+    private val touchSlop by lazy { ViewConfiguration.get(context).scaledTouchSlop }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        handleInterceptTouchEvent(ev)
+        return super.dispatchTouchEvent(ev)
+    }
+
+    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+//        handleInterceptTouchEvent(ev)
+        return super.onInterceptTouchEvent(ev)
+    }
+
+    private fun handleInterceptTouchEvent(ev: MotionEvent) {
+        when (ev.action) {
+            MotionEvent.ACTION_DOWN -> {
+                downX = ev.x
+                parent.requestDisallowInterceptTouchEvent(true)
+            }
+            MotionEvent.ACTION_MOVE -> {
+                val moveX = ev.x - downX
+                val scaledDx = moveX.absoluteValue * .5f
+
+//                if (scaledDx > touchSlop) {
+                    if (canScrollHorizontally(-moveX.toInt())) {
+                        parent.requestDisallowInterceptTouchEvent(true)
+                    } else {
+                        parent.requestDisallowInterceptTouchEvent(false)
+                    }
+//                }
+            }
+            MotionEvent.ACTION_UP -> {
+                parent.requestDisallowInterceptTouchEvent(false)
+            }
+        }
     }
 
     internal class InnerPagerAdapter<VH : PagerGridView.ItemViewHolder>(
