@@ -8,7 +8,7 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import kotlin.math.max
 
-class PagerGridViewPager @JvmOverloads constructor(
+open class PagerGridViewPager @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : ViewPager(context, attrs) {

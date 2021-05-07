@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.viewpager2.widget.ViewPager2
 
-class PagerGridViewPager2 @JvmOverloads constructor(
+open class PagerGridViewPager2 @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
