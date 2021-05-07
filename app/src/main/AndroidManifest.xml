@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PagerGridViewPagerActivity" />
+        <activity android:name=".TestNestTouchActivity" />
     </application>
 
 </manifest>

@@ -6,14 +6,15 @@ import android.widget.Toast
 import me.simple.pager.PagerGridView
 
 class InnerItemAdapter(
-    private val mItems: List<String>
+    private val mItems: List<String>,
+    private val lineCount:Int = 4
 ) : PagerGridView.ItemAdapter<InnerViewHolder>() {
 
     //列数
     override fun getSpanCount() = 4
 
     //行数
-    override fun getLineCount() = 4
+    override fun getLineCount() = lineCount
 
     override fun getItemCount() = mItems.size
 

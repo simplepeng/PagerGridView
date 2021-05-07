@@ -21,4 +21,5 @@ open class PagerGridViewPager2 @JvmOverloads constructor(
         viewPager2.adapter = ViewPagerAdapter(adapter)
     }
 
+
 }

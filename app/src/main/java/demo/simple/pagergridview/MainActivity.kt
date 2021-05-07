@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     private val btnPagerGridViewPager by lazy { findViewById<View>(R.id.btnPagerGridViewPager) }
 
+    private val btnTouch by lazy { findViewById<View>(R.id.btnTouch) }
+
     private val mItems = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,10 @@ class MainActivity : AppCompatActivity() {
 
         btnPagerGridViewPager.setOnClickListener {
             startActivity(Intent(this, PagerGridViewPagerActivity::class.java))
+        }
+
+        btnTouch.setOnClickListener {
+            startActivity(Intent(this, TestNestTouchActivity::class.java))
         }
 
         for (index in 0 until ITEM_COUNT) {
@@ -44,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    companion object{
+    companion object {
         const val ITEM_COUNT = 70
     }
 
