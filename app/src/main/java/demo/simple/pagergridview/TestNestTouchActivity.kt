@@ -38,6 +38,7 @@ class TestNestTouchActivity : AppCompatActivity() {
         }
 
         override fun createFragment(position: Int): Fragment {
+            if (position == 0) return PGVPFragment()
             return PGVP2Fragment()
         }
     }
@@ -50,6 +51,7 @@ class TestNestTouchActivity : AppCompatActivity() {
         }
 
         override fun getItem(position: Int): Fragment {
+            if (position == 0) return PGVPFragment()
             return PGVP2Fragment()
         }
     }
@@ -97,7 +99,8 @@ class TestNestTouchActivity : AppCompatActivity() {
                 mItems.add(index.toString())
             }
 
-            val pagerGridViewPager2 = view.findViewById<PagerGridViewPager2>(R.id.pagerGridViewPager2)
+            val pagerGridViewPager2 =
+                view.findViewById<PagerGridViewPager2>(R.id.pagerGridViewPager2)
             pagerGridViewPager2.setAdapter(InnerItemAdapter(mItems, 3))
         }
     }

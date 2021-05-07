@@ -7,6 +7,7 @@ import android.view.ViewConfiguration
 import android.widget.FrameLayout
 import androidx.viewpager2.widget.ViewPager2
 import kotlin.math.absoluteValue
+import kotlin.math.sign
 
 open class PagerGridViewPager2 @JvmOverloads constructor(
     context: Context,
@@ -36,11 +37,6 @@ open class PagerGridViewPager2 @JvmOverloads constructor(
         return super.dispatchTouchEvent(ev)
     }
 
-//    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
-//        handleInterceptTouchEvent(ev)
-//        return super.onInterceptTouchEvent(ev)
-//    }
-
     private fun handleInterceptTouchEvent(ev: MotionEvent) {
         when (ev.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -51,13 +47,14 @@ open class PagerGridViewPager2 @JvmOverloads constructor(
                 val moveX = ev.x - downX
                 val scaledDx = moveX.absoluteValue * .5f
 
-//                if (scaledDx > touchSlop) {
-                if (canChildScroll(-moveX.toInt())) {
-                    parent.requestDisallowInterceptTouchEvent(true)
-                } else {
-                    parent.requestDisallowInterceptTouchEvent(false)
+                if (scaledDx > touchSlop) {
+                    val direction = -moveX.sign.toInt()
+                    if (canChildScroll(direction)) {
+                        parent.requestDisallowInterceptTouchEvent(true)
+                    } else {
+                        parent.requestDisallowInterceptTouchEvent(false)
+                    }
                 }
-//                }
             }
             MotionEvent.ACTION_UP -> {
                 parent.requestDisallowInterceptTouchEvent(false)

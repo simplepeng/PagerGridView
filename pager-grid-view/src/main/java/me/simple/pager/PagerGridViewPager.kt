@@ -55,13 +55,13 @@ open class PagerGridViewPager @JvmOverloads constructor(
                 val moveX = ev.x - downX
                 val scaledDx = moveX.absoluteValue * .5f
 
-//                if (scaledDx > touchSlop) {
+                if (scaledDx > touchSlop) {
                     if (canScrollHorizontally(-moveX.toInt())) {
                         parent.requestDisallowInterceptTouchEvent(true)
                     } else {
                         parent.requestDisallowInterceptTouchEvent(false)
                     }
-//                }
+                }
             }
             MotionEvent.ACTION_UP -> {
                 parent.requestDisallowInterceptTouchEvent(false)
