@@ -21,7 +21,7 @@ allprojects {
 
 ```groovy
 dependencies {
-        implementation 'com.github.simplepeng:PagerGridView:v1.0.1'
+        implementation 'com.github.simplepeng:PagerGridView:v1.0.2'
 }
 ```
 
