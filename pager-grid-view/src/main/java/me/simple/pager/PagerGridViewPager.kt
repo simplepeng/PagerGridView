@@ -45,11 +45,6 @@ open class PagerGridViewPager @JvmOverloads constructor(
         return super.dispatchTouchEvent(ev)
     }
 
-    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
-//        handleInterceptTouchEvent(ev)
-        return super.onInterceptTouchEvent(ev)
-    }
-
     private fun handleInterceptTouchEvent(ev: MotionEvent) {
         when (ev.action) {
             MotionEvent.ACTION_DOWN -> {

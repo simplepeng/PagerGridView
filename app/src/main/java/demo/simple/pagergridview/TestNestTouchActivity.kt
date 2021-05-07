@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import me.simple.pager.PagerGridViewPager
+import me.simple.pager.PagerGridViewPager2
 
 class TestNestTouchActivity : AppCompatActivity() {
 
@@ -37,7 +38,7 @@ class TestNestTouchActivity : AppCompatActivity() {
         }
 
         override fun createFragment(position: Int): Fragment {
-            return VpFragment()
+            return PGVP2Fragment()
         }
     }
 
@@ -49,11 +50,11 @@ class TestNestTouchActivity : AppCompatActivity() {
         }
 
         override fun getItem(position: Int): Fragment {
-            return VpFragment()
+            return PGVP2Fragment()
         }
     }
 
-    class VpFragment : Fragment() {
+    class PGVPFragment : Fragment() {
 
         private val mItems = mutableListOf<String>()
 
@@ -62,7 +63,7 @@ class TestNestTouchActivity : AppCompatActivity() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
         ): View? {
-            return inflater.inflate(R.layout.fragment_vp, container, false)
+            return inflater.inflate(R.layout.fragment_pgvp, container, false)
         }
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -74,6 +75,30 @@ class TestNestTouchActivity : AppCompatActivity() {
 
             val pagerGridViewPager = view.findViewById<PagerGridViewPager>(R.id.pagerGridViewPager)
             pagerGridViewPager.setAdapter(InnerItemAdapter(mItems, 3))
+        }
+    }
+
+    class PGVP2Fragment : Fragment() {
+
+        private val mItems = mutableListOf<String>()
+
+        override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            return inflater.inflate(R.layout.fragment_pgvp2, container, false)
+        }
+
+        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+
+            for (index in 0 until 26) {
+                mItems.add(index.toString())
+            }
+
+            val pagerGridViewPager2 = view.findViewById<PagerGridViewPager2>(R.id.pagerGridViewPager2)
+            pagerGridViewPager2.setAdapter(InnerItemAdapter(mItems, 3))
         }
     }
 }
