@@ -7,11 +7,12 @@ import me.simple.pager.PagerGridView
 
 class InnerItemAdapter(
     private val mItems: List<String>,
-    private val lineCount:Int = 4
+    private val spanCount: Int = 4,
+    private val lineCount: Int = 4
 ) : PagerGridView.ItemAdapter<InnerViewHolder>() {
 
     //列数
-    override fun getSpanCount() = 4
+    override fun getSpanCount() = spanCount
 
     //行数
     override fun getLineCount() = lineCount
