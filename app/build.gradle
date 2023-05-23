@@ -4,8 +4,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdk 30
+    namespace 'demo.simple.pagergridview'
 
     defaultConfig {
         applicationId "demo.simple.pagergridview"
