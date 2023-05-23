@@ -11,18 +11,11 @@
 [![](https://jitpack.io/v/simplepeng/PagerGridView.svg)](https://jitpack.io/#simplepeng/PagerGridView)
 
 ```groovy
-allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
-}
+maven { url 'https://jitpack.io' }
 ```
 
 ```groovy
-dependencies {
-        implementation 'com.github.simplepeng:PagerGridView:v1.0.2'
-}
+implementation 'com.github.simplepeng:PagerGridView:v1.0.3'
 ```
 
 ## 使用
@@ -108,5 +101,8 @@ https://github.com/tommybuonomo/dotsindicator
 
 ## 版本迭代
 
+* v1.0.3：merge pr [pull/3](https://github.com/simplepeng/PagerGridView/pull/3) thanks [wbkearly](https://github.com/wbkearly)
+  * 修复ViewPagerAdapter中getItemCount及getPageItemCount方法处理不当的问题
+* v1.0.2：修改类为open，解决嵌套滑动的事件冲突
 * v1.0.1：完善Api调用
 * v1.0.0：首次上传

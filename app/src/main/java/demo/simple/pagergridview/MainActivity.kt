@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             mItems.add(index.toString())
         }
 
-        pagerGridViewPager2.setAdapter(InnerItemAdapter(mItems, spanCount = 2, lineCount = 3))
+        pagerGridViewPager2.setAdapter(InnerItemAdapter(mItems, spanCount = 4, lineCount = 4))
 
         indicatorView.count = pagerGridViewPager2.viewPager2.adapter?.itemCount ?: 0
         pagerGridViewPager2.viewPager2.registerOnPageChangeCallback(object :
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val ITEM_COUNT = 6
+        const val ITEM_COUNT = 16
     }
 
 }
