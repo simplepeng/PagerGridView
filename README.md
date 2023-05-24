@@ -15,8 +15,10 @@ maven { url 'https://jitpack.io' }
 ```
 
 ```groovy
-implementation 'com.github.simplepeng:PagerGridView:v1.0.3'
+implementation 'com.github.simplepeng:PagerGridView:1.0.3'
 ```
+
+从`1.0.3`开始，版本号前面不用加`v`。
 
 ## 使用
 
@@ -75,13 +77,17 @@ class InnerViewHolder(itemView: View) : PagerGridView.ItemViewHolder(itemView) {
     android:layout_height="wrap_content"
     android:visibility="visible"
     app:layout_constraintTop_toTopOf="parent" />
+```
 或
+```xml
 <me.simple.pager.PagerGridViewPager
     android:id="@+id/pagerGridViewPager"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_constraintTop_toTopOf="parent" />
 ```
+
+
 
 然后设置Adapter就行
 
@@ -101,7 +107,7 @@ https://github.com/tommybuonomo/dotsindicator
 
 ## 版本迭代
 
-* v1.0.3：merge pr [pull/3](https://github.com/simplepeng/PagerGridView/pull/3) thanks [wbkearly](https://github.com/wbkearly)
+* 1.0.3：merge pr [pull/3](https://github.com/simplepeng/PagerGridView/pull/3) thanks [wbkearly](https://github.com/wbkearly)
   * 修复ViewPagerAdapter中getItemCount及getPageItemCount方法处理不当的问题
 * v1.0.2：修改类为open，解决嵌套滑动的事件冲突
 * v1.0.1：完善Api调用
